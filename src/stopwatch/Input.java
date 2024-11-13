@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Input extends Thread {
-	StringBuffer buffer;
+	private StringBuffer buffer;
 
 	public Input(StringBuffer buffer) {
 		this.buffer = buffer;
