@@ -41,9 +41,11 @@ public class Time extends Thread {
 			long curTime = cal.getTimeInMillis();
 			if (curTime - lastTime >= 1000) {
 				try {
-					writer.append(sdf.format(cal.getTime()));
-					writer.append(String.format(" [%d sec]\n", ++second));
+					buffer.append(sdf.format(cal.getTime()));
+					buffer.append(String.format(" [%d sec]\n", ++second));
+					writer.append(buffer);
 					writer.flush();
+					buffer.delete(0, buffer.length());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
